@@ -8,10 +8,11 @@ RUN apt-get update \
 
 FROM base AS app
 
-COPY . /usr/test_project
+WORKDIR /usr/warehouse-intexsoft-intership
 
-WORKDIR /usr/test_project
-
+COPY requirements.txt /usr/warehouse-intexsoft-intership/
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["uvicorn", "src.main:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
+COPY .env alembic.ini /usr/warehouse-intexsoft-intership/
+
+COPY src /usr/warehouse-intexsoft-intership

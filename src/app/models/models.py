@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Integer, String
-from .database import Base
+from src.app.models.database import Base
 
 
 class Item(Base):
@@ -8,4 +8,4 @@ class Item(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
     count = Column(Integer, default=1)
-    uuid = Column(Integer, default=2323)
+    uuid = Column(Integer, unique=True)
