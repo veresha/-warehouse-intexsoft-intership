@@ -13,6 +13,6 @@ WORKDIR /usr/warehouse-intexsoft-intership
 COPY requirements.txt /usr/warehouse-intexsoft-intership/
 RUN pip install -r requirements.txt
 
-COPY .env alembic.ini /usr/warehouse-intexsoft-intership/
+COPY .env alembic.ini entrypoint-server.sh /usr/warehouse-intexsoft-intership/
 
 COPY src /usr/warehouse-intexsoft-intership

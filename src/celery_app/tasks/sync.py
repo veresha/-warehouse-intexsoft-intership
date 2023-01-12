@@ -1,7 +1,7 @@
 from typing import List, Dict, Union
 
 from src.celery_app.main import app
-from src.main import get_info
+from src.app.db_worker import get_info
 
 
 @app.task(name='get_info', queue="warehouse_queue")
