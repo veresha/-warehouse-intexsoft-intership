@@ -2,6 +2,7 @@ version: "3.8"
 services:
   server:
     build: .
+    container_name: warehouse-server
     entrypoint: ./entrypoint-server.sh
     ports:
       - "8080:8080"
@@ -14,6 +15,7 @@ services:
 
   worker:
     build: .
+    container_name: warehouse-worker
     entrypoint: ./entrypoint-celery.sh
     volumes:
       - .:/usr/warehouse-intexsoft-intership
@@ -24,6 +26,7 @@ services:
 
   db:
     image: postgres
+    container_name: warehouse-db
     environment:
       POSTGRES_DB: ${DATABASE}
       POSTGRES_USER: ${DB_USER}
@@ -33,8 +36,13 @@ services:
 
   rabbitmq:
     image: rabbitmq:3.9.0-management-alpine
+    container_name: rabbit
     environment:
       RABBITMQ_BROKER: ${RABBITMQ_BROKER}
     ports:
       - "5672:5672"
       - "15672:15672"
+
+networks:
+  default:
+    name: external-example
