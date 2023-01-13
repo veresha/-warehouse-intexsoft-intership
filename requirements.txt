@@ -2,8 +2,9 @@ SQLAlchemy==1.4.46
 psycopg2~=2.9.5
 celery~=5.2.7
 alembic~=1.9.1
-requests==2.28.1
 pip==22.3.1
 Pillow==9.4.0
 Jinja2~=3.1.2
-setuptools==65.6.3
+fastapi==0.89.1
+pydantic~=1.10.4
+uvicorn~=0.20.0

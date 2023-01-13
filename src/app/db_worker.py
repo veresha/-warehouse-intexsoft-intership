@@ -11,13 +11,15 @@ def get_db():
         db.close()
 
 
+def get_item_by_id(db: Session, item_id: int):
+    return db.query(Item).filter(Item.id == item_id).first()
+
+
 def get_item_by_uuid(db: Session, uuid: int):
     return db.query(Item).get(Item.uuid == uuid)
 
 
-def get_info(uuid: int, quantity: int):
-    # db = get_db()
-    db = SessionLocal()
-    item = get_item_by_uuid(db, uuid)
-    db.close()
+def get_db_info(uuid: int, quantity: int):
+    with get_db() as db:
+        item = get_item_by_uuid(db, uuid)
     return quantity >= item.count

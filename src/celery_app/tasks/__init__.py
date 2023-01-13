@@ -1,1 +1,1 @@
-from .sync import task
+from .sync import get_info
