@@ -9,7 +9,9 @@ def get_info(items: List[Dict[str, Union[str, int]]]):
     item_uuid = items[0].get('id')
     item_quantity = items[0].get('quantity')
 
+    print('Запрос в бд склада')
     result = get_db_info(item_uuid, item_quantity)
+    print('Ответ от бд получен')
 
     if not result:
         return [{"id": item_uuid, "status": "Not enough"}]

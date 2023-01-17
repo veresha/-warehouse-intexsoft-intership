@@ -1,10 +1,7 @@
+fastapi==0.89.1
+uvicorn~=0.20.0
 SQLAlchemy==1.4.46
+pydantic~=1.10.4
 psycopg2~=2.9.5
 celery~=5.2.7
-alembic~=1.9.1
-pip==22.3.1
-Pillow==9.4.0
-Jinja2~=3.1.2
-fastapi==0.89.1
-pydantic~=1.10.4
-uvicorn~=0.20.0
+alembic==1.9.2
